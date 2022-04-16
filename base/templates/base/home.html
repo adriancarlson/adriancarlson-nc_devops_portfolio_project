@@ -1,0 +1,21 @@
+{% extends 'main.html'%}
+
+{% block content%}
+<h1>Mass Intentions</h1>
+
+<div>
+    <a href="{% url 'create-intention' %}">Create Intention</a>
+    <div>
+        {% for intention in intentions %}
+
+        <div>
+            <h5>{{intention.id}} --<a href="{% url 'intention' intention.id %}">{{intention.intention}}</a></h5>
+            <a href="{% url 'update-intention' intention.id %}">Edit</a> | <a
+                href="{% url 'delete-intention' intention.id %}">Delete</a>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content%}
